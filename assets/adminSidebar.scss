@@ -1,0 +1,13 @@
+.controlLinks {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #ccc;
+
+    &:hover {
+        background-color: #222d3f;
+    }
+}

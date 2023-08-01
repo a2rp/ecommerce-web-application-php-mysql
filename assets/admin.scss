@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.adminContainer {
+    // border: 1px solid #f00;
+    height: 100%;
+
+    .header {
+        background-color: #3c8dbc;
+    }
+
+    .contentSection {
+        // border: 1px solid #f00;
+        height: 100%;
+        display: flex;
+        justify-content: stretch;
+        align-items: stretch;
+
+        .controlSection {
+            width: 250px;
+            background-color: #222d31;
+
+            .controlLinks {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                cursor: pointer;
+                text-decoration: none;
+                color: #ccc;
+
+                &:hover {
+                    background-color: #222d3f;
+                }
+            }
+        }
+
+        .mainContent {
+            width: 100%;
+            padding: 15px;
+        }
+    }
+}

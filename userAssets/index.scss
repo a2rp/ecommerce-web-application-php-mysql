@@ -1,0 +1,55 @@
+.indexContainer {
+    padding: 15px;
+
+    .alertMessage {
+        padding: 15px;
+        background-color: #fff2c8;
+        font-weight: bolder;
+        margin-bottom: 15px;
+    }
+
+    #myCarousel {
+        margin-top: 15px;
+    }
+
+    .trendingProducts {
+        margin-top: 15px;
+
+        .heading {
+            font-size: 20px;
+        }
+
+        .detail {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #ccc;
+            text-align: center;
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            a {
+                .image {
+                    width: 150px;
+                    height: 300px;
+                }
+                .text {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+
+    .aboutMe {
+        margin-top: 15px;
+
+        .heading {
+            font-size: 20px;
+        }
+
+        .detail {
+            margin-top: 15px;
+        }
+    }
+}

@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.adminContainer {
+  height: 100%;
+  position: relative;
+}
+.adminContainer .header {
+  background-color: #3c8dbc;
+}
+.adminContainer .alertMessage {
+  position: absolute;
+  background-color: #fff2c8;
+  padding: 15px;
+  right: 0;
+  top: 30px;
+}
+.adminContainer .contentSection {
+  height: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.adminContainer .contentSection .controlSection {
+  width: 250px;
+  background-color: #222d31;
+}
+.adminContainer .contentSection .controlSection .controlLinks {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ccc;
+}
+.adminContainer .contentSection .controlSection .controlLinks:hover {
+  background-color: #222d3f;
+}
+.adminContainer .contentSection .mainContent {
+  width: 100%;
+  padding: 15px;
+}
+.adminContainer .contentSection .mainContent .heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: flex-start;
+}
+.adminContainer .contentSection .mainContent .heading .newCategoryLink {
+  background-color: #5ab55a;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #fff;
+}
+.adminContainer .contentSection .mainContent .heading .newCategoryLink:hover {
+  background-color: #5ab500;
+}
+.adminContainer .contentSection .mainContent .categoryTable {
+  margin-top: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.adminContainer .contentSection .mainContent .categoryTable thead tr th {
+  padding: 5px;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+}
+.adminContainer .contentSection .mainContent .categoryTable tbody tr td {
+  padding: 5px;
+  text-align: center;
+}
+.adminContainer .contentSection .mainContent .categoryTable tbody tr td .categoryImage {
+  width: 50px;
+  height: 50px;
+}
+.adminContainer .contentSection .mainContent .categoryTable tbody tr td .actionContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+.adminContainer .contentSection .mainContent .categoryTable tbody tr td .actionContainer form .deleteButton {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: orangered;
+  color: #ddd;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.adminContainer .contentSection .mainContent .categoryTable tbody tr td .actionContainer form .deleteButton:hover {
+  background-color: #f00;
+}
+.adminContainer .contentSection .mainContent .categoryTable tbody tr td .actionContainer .deleteCategoryButton {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: orangered;
+  color: #ddd;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.adminContainer .contentSection .mainContent .categoryTable tbody tr td .actionContainer .deleteCategoryButton:hover {
+  background-color: #f00;
+}
+.adminContainer .contentSection .mainContent .categoryTable tbody tr:nth-child(odd) {
+  background-color: #ccc;
+}/*# sourceMappingURL=category.css.map */

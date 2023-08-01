@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.adminContainer {
+  height: 100%;
+  position: relative;
+}
+.adminContainer .header {
+  background-color: #3c8dbc;
+}
+.adminContainer .alertMessage {
+  position: absolute;
+  background-color: #fff2c8;
+  padding: 15px;
+  right: 0;
+  top: 30px;
+}
+.adminContainer .contentSection {
+  height: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.adminContainer .contentSection .controlSection {
+  width: 250px;
+  background-color: #222d31;
+}
+.adminContainer .contentSection .controlSection .controlLinks {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ccc;
+}
+.adminContainer .contentSection .controlSection .controlLinks:hover {
+  background-color: #222d3f;
+}
+.adminContainer .contentSection .mainContent {
+  width: 100%;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer {
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .deliveryDetailsContainer,
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer {
+  width: 100%;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .deliveryDetailsContainer .heading,
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .heading {
+  background-color: #aaa;
+  padding: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .deliveryDetailsContainer .detailGroup label,
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .detailGroup label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 3px;
+  font-weight: bolder;
+  padding: 5px;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .deliveryDetailsContainer .detailGroup input[type=text],
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .detailGroup input[type=text] {
+  height: 40px;
+  width: 100%;
+  padding: 15px;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .deliveryDetailsContainer .detailGroup textarea,
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .detailGroup textarea {
+  width: 100%;
+  padding: 15px;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .orderDetailsTable {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .orderDetailsTable thead tr th {
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .orderDetailsTable tbody tr td {
+  padding: 15px;
+  text-align: center;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .orderDetailsTable tbody tr td img {
+  width: 100px;
+  height: 100px;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .orderDetailsTable tbody tr .imageProductName {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .orderDetailsTable tbody tr:nth-child(odd) {
+  background-color: #ddd;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .totalPrice,
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .paymentMode,
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .paymentStatus {
+  background-color: #333;
+  color: blueviolet;
+  padding: 15px;
+  font-size: 12px;
+}
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .totalPrice span,
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .paymentMode span,
+.adminContainer .contentSection .mainContent .deliveryOrderDetailsContainer .orderDetailsContainer .paymentStatus span {
+  float: right;
+  color: orangered;
+}/*# sourceMappingURL=viewOrder.css.map */

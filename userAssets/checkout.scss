@@ -1,0 +1,117 @@
+.checkoutContainer {
+    border: 1px solid #f00;
+    padding: 15px;
+
+    .breadCrumbsContainer {
+        margin-bottom: 15px;
+    }
+
+    .billingCartsContainer {
+        display: flex;
+        gap: 30px;
+
+        .billingContainer {
+            width: 100%;
+
+            .billingDetailsHeader {
+                padding: 5px;
+                margin-bottom: 15px;
+                border-bottom: 1px solid #000;
+            }
+
+            form {
+                .formGroup {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 30px;
+                    margin-bottom: 15px;
+                    width: 100%;
+                    // border: 1px solid #000;
+
+                    .nameContainer,
+                    .emailContainer,
+                    .phoneContainer,
+                    .pincodeContainer {
+                        width: 100%;
+
+                        label {
+                            display: block;
+                            margin-bottom: 3px;
+                        }
+                        input[type="text"],
+                        input[type="email"] {
+                            display: block;
+                            height: 30px;
+                            width: 100%;
+                            padding: 5px;
+                        }
+                    }
+                }
+                .addressContainer {
+                    label {
+                        display: block;
+                        margin-bottom: 3px;
+                    }
+                    textarea {
+                        width: 100%;
+                        padding: 5px;
+                    }
+                }
+                .placeOrder {
+                    margin-top: 15px;
+                    padding: 15px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .cartsContentContainer {
+            width: 100%;
+
+            .cartItemHeader {
+                padding: 5px;
+                margin-bottom: 15px;
+                border-bottom: 1px solid #000;
+            }
+
+            .cartItemContainer {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+                background-color: #ddd;
+                padding: 5px;
+
+                .image {
+                    width: 100%;
+
+                    img {
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+                .name {
+                    width: 100%;
+                    text-align: center;
+                }
+                .price {
+                    width: 100%;
+                    text-align: center;
+                }
+                .numberOfItems {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            .totalPrice {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                h3 {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

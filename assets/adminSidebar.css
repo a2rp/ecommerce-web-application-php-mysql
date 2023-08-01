@@ -1,0 +1,12 @@
+.controlLinks {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ccc;
+}
+.controlLinks:hover {
+  background-color: #222d3f;
+}/*# sourceMappingURL=adminSidebar.css.map */

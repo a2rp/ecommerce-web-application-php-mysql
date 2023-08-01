@@ -1,0 +1,145 @@
+.productContainer {
+    padding: 15px;
+
+    .breadcrumbs {
+        margin-bottom: 15px;
+        font-size: 12px;
+    }
+
+    .productDetail {
+        // border: 1px solid #f00;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 30px;
+
+        .image {
+            width: 100px;
+            height: 100px;
+            margin: 15px;
+        }
+
+        .text {
+            width: 100%;
+            div {
+                font-size: 20px;
+
+                h1 {
+                    font-size: 20px;
+                }
+            }
+            .productNameTrending {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                .productName {
+                    font-weight: bolder;
+                }
+                .productTrending {
+                    color: orangered;
+                }
+            }
+
+            .priceContainer {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 50px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+
+                .originalPrice {
+                    color: orangered;
+                    font-weight: bolder;
+                    position: relative;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 110%;
+                        height: 2px;
+                        background-color: #000;
+                        margin: auto;
+                        top: 0;
+                        bottom: 0;
+                        left: -5%;
+                    }
+                }
+                .sellingPrice {
+                    color: darkgreen;
+                    font-weight: bolder;
+                }
+            }
+
+            .addToCart {
+                .inputArea {
+                    width: 150px;
+                    border-radius: 3px;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .minus,
+                    .plus {
+                        background-color: #222;
+                        color: #fff;
+                        width: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                    }
+
+                    input[type="number"] {
+                        height: 30px;
+                        width: 100%;
+                        text-align: center;
+                        font-weight: bolder;
+                    }
+                }
+                .repeatOrderContainer {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 15px;
+                    // border: 1px solid #f00;
+                    margin-top: 30px;
+
+                    .repeatOrderCheckbox {
+                        zoom: 2;
+                    }
+
+                    span {
+                        font-size: 15px;
+                    }
+                }
+                .addToCartButton {
+                    background-color: #006dff;
+                    color: white;
+                    margin-top: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 15px;
+                    width: 150px;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 3px;
+
+                    &:hover {
+                        background-color: #006faa;
+                    }
+                }
+            }
+
+            .productDescription {
+                margin-top: 15px;
+            }
+
+            hr {
+                margin: 5px;
+            }
+        }
+    }
+}

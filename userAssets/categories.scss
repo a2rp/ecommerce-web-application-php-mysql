@@ -1,0 +1,32 @@
+.categoriesContainer {
+    // border: 1px solid #f00;
+    .categoriesBreadcrumb {
+        font-size: 12px;
+        margin: 15px;
+    }
+
+    .pageTitle {
+        margin: 15px;
+    }
+
+    .categoryContainer {
+        // border: 1px solid #f00;
+        margin: 15px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 15px;
+        box-shadow: 0 0 15px 5px #000;
+        padding: 15px;
+        border-radius: 3px;
+
+        .image {
+            width: 100px;
+            height: 100px;
+        }
+        .text {
+            line-height: 21px;
+        }
+    }
+}

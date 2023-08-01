@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.adminContainer {
+    // border: 1px solid #f00;
+    height: 100%;
+    position: relative;
+
+    .header {
+        background-color: #3c8dbc;
+    }
+
+    .alertMessage {
+        position: absolute;
+        background-color: #fff2c8;
+        padding: 15px;
+        right: 0;
+        top: 30px;
+    }
+
+    .contentSection {
+        // border: 1px solid #f00;
+        height: 100%;
+        display: flex;
+        justify-content: stretch;
+        align-items: stretch;
+
+        .controlSection {
+            width: 250px;
+            background-color: #222d31;
+
+            .controlLinks {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                cursor: pointer;
+                text-decoration: none;
+                color: #ccc;
+
+                &:hover {
+                    background-color: #222d3f;
+                }
+            }
+        }
+
+        .mainContent {
+            width: 100%;
+            padding: 15px;
+
+            form {
+                border: 1px solid transparent;
+                padding-top: 15px;
+                padding-bottom: 30px;
+
+                .formContainer {
+                    .formGroup {
+                        margin-bottom: 15px;
+
+                        label {
+                            display: block;
+                            margin-bottom: 3px;
+                        }
+
+                        input[type="text"] {
+                            display: block;
+                            height: 30px;
+                            width: 100%;
+                            padding: 5px;
+                        }
+                        textarea {
+                            width: 100%;
+                            padding: 5px;
+                        }
+                    }
+                    .nameSlugContainer,
+                    .metaContainer {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                        gap: 30px;
+
+                        .formGroup {
+                            width: 100%;
+                        }
+                    }
+
+                    .statusPopularContainer {
+                        max-width: 300px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+
+                        .statusContainer,
+                        .popularContainer {
+                            display: flex;
+                            gap: 15px;
+                            justify-content: flex-start;
+                            align-items: center;
+                        }
+                    }
+
+                    .addCategoryButton {
+                        padding: 5px;
+                        padding-left: 15px;
+                        padding-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

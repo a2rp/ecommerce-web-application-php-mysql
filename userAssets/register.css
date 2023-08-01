@@ -1,0 +1,26 @@
+.registerContainer {
+  padding: 15px;
+}
+.registerContainer .alertMessage {
+  padding: 15px;
+  background-color: #fff2c8;
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+.registerContainer .formGroup label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.registerContainer .formGroup input[type=text],
+.registerContainer .formGroup input[type=password],
+.registerContainer .formGroup input[type=number] {
+  height: 30px;
+  width: 300px;
+  padding-left: 10px;
+}
+.registerContainer .formGroup input[type=submit] {
+  margin-top: 15px;
+  width: 100px;
+  height: 30px;
+}/*# sourceMappingURL=register.css.map */

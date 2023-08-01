@@ -1,0 +1,38 @@
+.myOrdersContainer {
+    padding: 15px;
+
+    .breadcrumbs {
+        margin-bottom: 15px;
+        font-size: 12px;
+    }
+
+    .myOrdersContentContainer {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            thead {
+                tr {
+                    background-color: #000;
+                    color: #fff;
+
+                    th {
+                        text-align: center;
+                        padding: 15px;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        text-align: center;
+                        padding: 15px;
+                    }
+                }
+                tr:nth-child(odd) {
+                    background-color: #ccc;
+                }
+            }
+        }
+    }
+}

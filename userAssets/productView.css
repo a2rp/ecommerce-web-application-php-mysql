@@ -1,0 +1,124 @@
+.productContainer {
+  padding: 15px;
+}
+.productContainer .breadcrumbs {
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+.productContainer .productDetail {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+}
+.productContainer .productDetail .image {
+  width: 100px;
+  height: 100px;
+  margin: 15px;
+}
+.productContainer .productDetail .text {
+  width: 100%;
+}
+.productContainer .productDetail .text div {
+  font-size: 20px;
+}
+.productContainer .productDetail .text div h1 {
+  font-size: 20px;
+}
+.productContainer .productDetail .text .productNameTrending {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.productContainer .productDetail .text .productNameTrending .productName {
+  font-weight: bolder;
+}
+.productContainer .productDetail .text .productNameTrending .productTrending {
+  color: orangered;
+}
+.productContainer .productDetail .text .priceContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.productContainer .productDetail .text .priceContainer .originalPrice {
+  color: orangered;
+  font-weight: bolder;
+  position: relative;
+}
+.productContainer .productDetail .text .priceContainer .originalPrice::after {
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 2px;
+  background-color: #000;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: -5%;
+}
+.productContainer .productDetail .text .priceContainer .sellingPrice {
+  color: darkgreen;
+  font-weight: bolder;
+}
+.productContainer .productDetail .text .addToCart .inputArea {
+  width: 150px;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+.productContainer .productDetail .text .addToCart .inputArea .minus,
+.productContainer .productDetail .text .addToCart .inputArea .plus {
+  background-color: #222;
+  color: #fff;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.productContainer .productDetail .text .addToCart .inputArea input[type=number] {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  font-weight: bolder;
+}
+.productContainer .productDetail .text .addToCart .repeatOrderContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+.productContainer .productDetail .text .addToCart .repeatOrderContainer .repeatOrderCheckbox {
+  zoom: 2;
+}
+.productContainer .productDetail .text .addToCart .repeatOrderContainer span {
+  font-size: 15px;
+}
+.productContainer .productDetail .text .addToCart .addToCartButton {
+  background-color: #006dff;
+  color: white;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  width: 150px;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+}
+.productContainer .productDetail .text .addToCart .addToCartButton:hover {
+  background-color: #006faa;
+}
+.productContainer .productDetail .text .productDescription {
+  margin-top: 15px;
+}
+.productContainer .productDetail .text hr {
+  margin: 5px;
+}/*# sourceMappingURL=productView.css.map */

@@ -1,0 +1,26 @@
+.myOrdersContainer {
+  padding: 15px;
+}
+.myOrdersContainer .breadcrumbs {
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+.myOrdersContainer .myOrdersContentContainer table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.myOrdersContainer .myOrdersContentContainer table thead tr {
+  background-color: #000;
+  color: #fff;
+}
+.myOrdersContainer .myOrdersContentContainer table thead tr th {
+  text-align: center;
+  padding: 15px;
+}
+.myOrdersContainer .myOrdersContentContainer table tbody tr td {
+  text-align: center;
+  padding: 15px;
+}
+.myOrdersContainer .myOrdersContentContainer table tbody tr:nth-child(odd) {
+  background-color: #ccc;
+}/*# sourceMappingURL=myOrders.css.map */

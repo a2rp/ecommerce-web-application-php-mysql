@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.adminContainer {
+  height: 100%;
+}
+.adminContainer .header {
+  background-color: #3c8dbc;
+}
+.adminContainer .contentSection {
+  height: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.adminContainer .contentSection .controlSection {
+  width: 250px;
+  background-color: #222d31;
+}
+.adminContainer .contentSection .controlSection .controlLinks {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ccc;
+}
+.adminContainer .contentSection .controlSection .controlLinks:hover {
+  background-color: #222d3f;
+}
+.adminContainer .contentSection .mainContent {
+  width: 100%;
+  padding: 15px;
+}
+.adminContainer .contentSection .mainContent .ordersContainer table.myOrdersTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.adminContainer .contentSection .mainContent .ordersContainer table.myOrdersTable thead tr th {
+  background-color: #000;
+  color: #fff;
+  padding: 15px;
+}
+.adminContainer .contentSection .mainContent .ordersContainer table.myOrdersTable tbody tr td {
+  padding: 15px;
+  text-align: center;
+}
+.adminContainer .contentSection .mainContent .ordersContainer table.myOrdersTable tbody tr:nth-child(odd) {
+  background-color: ddd;
+}/*# sourceMappingURL=orders.css.map */

@@ -1,0 +1,25 @@
+.productContainer {
+    // border: 1px solid #f00;
+    padding: 15px;
+
+    .breadcrumbs {
+        margin-bottom: 30px;
+        font-size: 12px;
+    }
+
+    .listContainer {
+        display: inline-block;
+        text-align: center;
+        margin-right: 30px;
+
+        .image {
+            width: 100px;
+            height: 100px;
+        }
+
+        .text {
+            margin-top: 15px;
+            font-size: 20px;
+        }
+    }
+}

@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.adminContainer {
+    // border: 1px solid #f00;
+    height: 100%;
+    position: relative;
+
+    .header {
+        background-color: #3c8dbc;
+    }
+
+    .alertMessage {
+        position: absolute;
+        background-color: #fff2c8;
+        padding: 15px;
+        right: 0;
+        top: 30px;
+    }
+
+    .contentSection {
+        // border: 1px solid #f00;
+        height: 100%;
+        display: flex;
+        justify-content: stretch;
+        align-items: stretch;
+
+        .controlSection {
+            width: 250px;
+            background-color: #222d31;
+
+            .controlLinks {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                cursor: pointer;
+                text-decoration: none;
+                color: #ccc;
+
+                &:hover {
+                    background-color: #222d3f;
+                }
+            }
+        }
+
+        .mainContent {
+            // border: 1px solid #f00;
+            width: 100%;
+
+            .deliveryOrderDetailsContainer {
+                padding-bottom: 100px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 30px;
+
+                .deliveryDetailsContainer,
+                .orderDetailsContainer {
+                    // border: 1px solid #f00;
+                    width: 100%;
+
+                    .heading {
+                        background-color: #aaa;
+                        padding: 5px;
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                        margin-bottom: 15px;
+                        font-size: 12px;
+                    }
+
+                    .detailGroup {
+                        label {
+                            display: block;
+                            margin-top: 15px;
+                            margin-bottom: 3px;
+                            font-weight: bolder;
+                            padding: 5px;
+                        }
+                        input[type="text"] {
+                            height: 40px;
+                            width: 100%;
+                            padding: 15px;
+                        }
+                        textarea {
+                            width: 100%;
+                            padding: 15px;
+                        }
+                    }
+                }
+
+                .orderDetailsContainer {
+                    // border: 1px solid #f00;
+
+                    .orderDetailsTable {
+                        border-collapse: collapse;
+                        width: 100%;
+                        table-layout: fixed;
+
+                        thead {
+                            tr {
+                                th {
+                                    background-color: #333;
+                                    color: #fff;
+                                    padding: 15px;
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                td {
+                                    // border: 1px solid #f00;
+                                    padding: 15px;
+                                    text-align: center;
+
+                                    img {
+                                        width: 100px;
+                                        height: 100px;
+                                    }
+                                }
+                                .imageProductName {
+                                    display: flex;
+                                    justify-content: center;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    gap: 30px;
+                                }
+                            }
+                            tr:nth-child(odd) {
+                                background-color: #ddd;
+                            }
+                        }
+                    }
+
+                    .totalPrice,
+                    .paymentMode,
+                    .paymentStatus {
+                        background-color: #333;
+                        color: blueviolet;
+                        padding: 15px;
+                        font-size: 12px;
+
+                        span {
+                            float: right;
+                            color: orangered;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

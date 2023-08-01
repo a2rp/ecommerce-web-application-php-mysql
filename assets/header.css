@@ -1,0 +1,28 @@
+.headerContainer {
+  background-color: #202529;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerContainer .home {
+  color: #fff;
+  padding: 15px;
+  text-decoration: none;
+}
+.headerContainer .home:hover {
+  text-decoration: underline;
+}
+.headerContainer .navbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerContainer .navbarContainer .navlink {
+  padding: 15px;
+  color: #aaa;
+  text-decoration: none;
+}
+.headerContainer .navbarContainer .navlink:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=header.css.map */

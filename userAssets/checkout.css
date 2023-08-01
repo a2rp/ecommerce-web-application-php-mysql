@@ -1,0 +1,107 @@
+.checkoutContainer {
+  border: 1px solid #f00;
+  padding: 15px;
+}
+.checkoutContainer .breadCrumbsContainer {
+  margin-bottom: 15px;
+}
+.checkoutContainer .billingCartsContainer {
+  display: flex;
+  gap: 30px;
+}
+.checkoutContainer .billingCartsContainer .billingContainer {
+  width: 100%;
+}
+.checkoutContainer .billingCartsContainer .billingContainer .billingDetailsHeader {
+  padding: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #000;
+}
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .nameContainer,
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .emailContainer,
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .phoneContainer,
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .pincodeContainer {
+  width: 100%;
+}
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .nameContainer label,
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .emailContainer label,
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .phoneContainer label,
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .pincodeContainer label {
+  display: block;
+  margin-bottom: 3px;
+}
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .nameContainer input[type=text],
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .nameContainer input[type=email],
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .emailContainer input[type=text],
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .emailContainer input[type=email],
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .phoneContainer input[type=text],
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .phoneContainer input[type=email],
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .pincodeContainer input[type=text],
+.checkoutContainer .billingCartsContainer .billingContainer form .formGroup .pincodeContainer input[type=email] {
+  display: block;
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+}
+.checkoutContainer .billingCartsContainer .billingContainer form .addressContainer label {
+  display: block;
+  margin-bottom: 3px;
+}
+.checkoutContainer .billingCartsContainer .billingContainer form .addressContainer textarea {
+  width: 100%;
+  padding: 5px;
+}
+.checkoutContainer .billingCartsContainer .billingContainer form .placeOrder {
+  margin-top: 15px;
+  padding: 15px;
+  width: 100%;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer {
+  width: 100%;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer .cartItemHeader {
+  padding: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #000;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer .cartItemContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background-color: #ddd;
+  padding: 5px;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer .cartItemContainer .image {
+  width: 100%;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer .cartItemContainer .image img {
+  width: 50px;
+  height: 50px;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer .cartItemContainer .name {
+  width: 100%;
+  text-align: center;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer .cartItemContainer .price {
+  width: 100%;
+  text-align: center;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer .cartItemContainer .numberOfItems {
+  width: 100%;
+  text-align: center;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer .totalPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.checkoutContainer .billingCartsContainer .cartsContentContainer .totalPrice h3 {
+  font-size: 20px;
+}/*# sourceMappingURL=checkout.css.map */

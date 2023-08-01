@@ -1,0 +1,25 @@
+.loginContainer {
+  padding: 15px;
+}
+.loginContainer .alertMessage {
+  padding: 15px;
+  background-color: #fff2c8;
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+.loginContainer .formGroup label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.loginContainer .formGroup input[type=text],
+.loginContainer .formGroup input[type=password] {
+  height: 30px;
+  width: 300px;
+  padding-left: 10px;
+}
+.loginContainer .formGroup input[type=submit] {
+  margin-top: 15px;
+  width: 100px;
+  height: 30px;
+}/*# sourceMappingURL=login.css.map */

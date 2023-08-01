@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.adminContainer {
+  height: 100%;
+  position: relative;
+}
+.adminContainer .header {
+  background-color: #3c8dbc;
+}
+.adminContainer .alertMessage {
+  position: absolute;
+  background-color: #fff2c8;
+  padding: 15px;
+  right: 0;
+  top: 30px;
+}
+.adminContainer .contentSection {
+  height: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.adminContainer .contentSection .controlSection {
+  width: 250px;
+  background-color: #222d31;
+}
+.adminContainer .contentSection .controlSection .controlLinks {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ccc;
+}
+.adminContainer .contentSection .controlSection .controlLinks:hover {
+  background-color: #222d3f;
+}
+.adminContainer .contentSection .mainContent {
+  width: 100%;
+  padding: 15px;
+}
+.adminContainer .contentSection .mainContent form {
+  border: 1px solid transparent;
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+.adminContainer .contentSection .mainContent form .formContainer .formGroup {
+  margin-bottom: 15px;
+}
+.adminContainer .contentSection .mainContent form .formContainer .formGroup label {
+  display: block;
+  margin-bottom: 3px;
+}
+.adminContainer .contentSection .mainContent form .formContainer .formGroup input[type=text] {
+  display: block;
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+}
+.adminContainer .contentSection .mainContent form .formContainer .formGroup textarea {
+  width: 100%;
+  padding: 5px;
+}
+.adminContainer .contentSection .mainContent form .formContainer .nameSlugContainer,
+.adminContainer .contentSection .mainContent form .formContainer .metaContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+.adminContainer .contentSection .mainContent form .formContainer .nameSlugContainer .formGroup,
+.adminContainer .contentSection .mainContent form .formContainer .metaContainer .formGroup {
+  width: 100%;
+}
+.adminContainer .contentSection .mainContent form .formContainer .statusPopularContainer {
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.adminContainer .contentSection .mainContent form .formContainer .statusPopularContainer .statusContainer,
+.adminContainer .contentSection .mainContent form .formContainer .statusPopularContainer .popularContainer {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.adminContainer .contentSection .mainContent form .formContainer .addCategoryButton {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}/*# sourceMappingURL=addCategory.css.map */

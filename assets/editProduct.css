@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.adminContainer {
+  height: 100%;
+  position: relative;
+}
+.adminContainer .header {
+  background-color: #3c8dbc;
+}
+.adminContainer .alertMessage {
+  position: absolute;
+  background-color: #fff2c8;
+  padding: 15px;
+  right: 0;
+  top: 30px;
+}
+.adminContainer .contentSection {
+  height: 100%;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.adminContainer .contentSection .controlSection {
+  width: 250px;
+  background-color: #222d31;
+}
+.adminContainer .contentSection .controlSection .controlLinks {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ccc;
+}
+.adminContainer .contentSection .controlSection .controlLinks:hover {
+  background-color: #222d3f;
+}
+.adminContainer .contentSection .mainContent {
+  width: 100%;
+  padding: 15px;
+}
+.adminContainer .contentSection .mainContent .headingContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+.adminContainer .contentSection .mainContent form {
+  border: 1px solid transparent;
+  margin-top: 15px;
+  width: 100%;
+}
+.adminContainer .contentSection .mainContent form .formGroup {
+  margin-bottom: 15px;
+}
+.adminContainer .contentSection .mainContent form .formGroup .categoryId {
+  height: 30px;
+  width: 100%;
+}
+.adminContainer .contentSection .mainContent form .formGroup label {
+  display: block;
+  margin-bottom: 3px;
+}
+.adminContainer .contentSection .mainContent form .formGroup input[type=text] {
+  display: block;
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+}
+.adminContainer .contentSection .mainContent form .formGroup input[type=number] {
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+}
+.adminContainer .contentSection .mainContent form .formGroup textarea {
+  width: 100%;
+  padding: 5px;
+}
+.adminContainer .contentSection .mainContent form .formGroup img {
+  display: block;
+  margin-top: 5px;
+  width: 100px;
+  height: 100px;
+}
+.adminContainer .contentSection .mainContent form .nameSlugContainer,
+.adminContainer .contentSection .mainContent form .descriptionContainer,
+.adminContainer .contentSection .mainContent form .priceContainer,
+.adminContainer .contentSection .mainContent form .imageQuantityContainer,
+.adminContainer .contentSection .mainContent form .statusTrendingContainer,
+.adminContainer .contentSection .mainContent form .metaContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+.adminContainer .contentSection .mainContent form .nameSlugContainer .formGroup,
+.adminContainer .contentSection .mainContent form .descriptionContainer .formGroup,
+.adminContainer .contentSection .mainContent form .priceContainer .formGroup,
+.adminContainer .contentSection .mainContent form .imageQuantityContainer .formGroup,
+.adminContainer .contentSection .mainContent form .statusTrendingContainer .formGroup,
+.adminContainer .contentSection .mainContent form .metaContainer .formGroup {
+  width: 100%;
+}
+.adminContainer .contentSection .mainContent form .statusTrendingContainer {
+  max-width: 300px;
+}
+.adminContainer .contentSection .mainContent form button {
+  display: block;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+}/*# sourceMappingURL=editProduct.css.map */

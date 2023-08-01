@@ -1,0 +1,25 @@
+.categoriesContainer .categoriesBreadcrumb {
+  font-size: 12px;
+  margin: 15px;
+}
+.categoriesContainer .pageTitle {
+  margin: 15px;
+}
+.categoriesContainer .categoryContainer {
+  margin: 15px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  box-shadow: 0 0 15px 5px #000;
+  padding: 15px;
+  border-radius: 3px;
+}
+.categoriesContainer .categoryContainer .image {
+  width: 100px;
+  height: 100px;
+}
+.categoriesContainer .categoryContainer .text {
+  line-height: 21px;
+}/*# sourceMappingURL=categories.css.map */
