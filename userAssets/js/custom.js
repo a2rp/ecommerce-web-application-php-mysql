@@ -2,7 +2,6 @@ $(document).ready(function () {
     $(document).on('click', ".plus", function (event) {
         // const prevQuantity = $("#itemNumber").val();
         const prevQuantity = $(this).closest("div.inputArea").find("input").val();
-        // console.log(prevValue);
         let value = parseInt(prevQuantity, 10);
         value = isNaN(value) ? 0 : value;
         if (value < 10) {
@@ -15,7 +14,6 @@ $(document).ready(function () {
     $(document).on('click', ".minus", function (event) {
         // const prevQuantity = $("#itemNumber").val();
         const prevQuantity = $(this).closest("div.inputArea").find("input").val();
-        // console.log(prevValue);
         let value = parseInt(prevQuantity, 10);
         value = isNaN(value) ? 1 : value;
         if (value > 1) {

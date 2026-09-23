@@ -6,4 +6,20 @@
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 12px;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  padding-top: 64px;
+  background: #f5f7f9;
+  color: #202529;
+}
+
+button,
+a {
+  transition: border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, background 180ms ease;
+}

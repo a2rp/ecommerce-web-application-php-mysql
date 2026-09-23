@@ -1,38 +1,16 @@
-.footerContainer {
-  margin-top: 100vh;
-  height: 300px;
-  background-color: #333;
-  padding: 50px;
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.footerContainer .col1,
-.footerContainer .col2,
-.footerContainer .col3 {
-  width: 100%;
-}
-.footerContainer .col1 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-}
-.footerContainer .col1 .footerNavLink {
-  height: 30px;
-  width: 100%;
-  color: #fff;
-  text-decoration: none;
-}
-.footerContainer .col1 .footerNavLink:hover {
-  text-decoration: underline;
-}
-.footerContainer .col2 {
-  color: #fff;
-  font-size: 20px;
-}
-.footerContainer .col2 pre {
-  margin-top: 15px;
-  background-color: inherit;
-  color: #ccc;
-}/*# sourceMappingURL=footer.css.map */
+.footerContainer{margin-top:70px;padding:42px clamp(18px,5vw,70px) 22px;background:#202529;color:#d7e0e6;display:grid;grid-template-columns:.8fr 1fr 1.2fr;gap:34px}
+.footerContainer .footerNav,.footerContainer .footerAddress{display:flex;flex-direction:column;align-items:flex-start;gap:11px}
+.footerContainer strong{color:#fff;font-size:16px}
+.footerContainer .footerNavLink,.footerContainer .footerAddress a{color:#b9c8d2;text-decoration:none}
+.footerContainer .footerNavLink:hover,.footerContainer .footerNavLink:focus-visible,.footerContainer .footerAddress a:hover,.footerContainer .footerAddress a:focus-visible{color:#8ed0ff;text-decoration:none}
+.footerContainer .footerAddress{font-style:normal}.footerContainer .footerAddress span{line-height:1.6}
+.footerContainer .footerMap{min-height:160px;border-radius:12px;opacity:.82}
+.footerContainer .footerBottom{grid-column:1/-1;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:space-between;gap:18px}
+.footerContainer .footerBottom p{margin:0}.footerContainer .footerBottom p a{color:#fff;font-weight:700}
+.footerContainer .footerSocialLinks{display:flex;flex-wrap:wrap;gap:8px}
+.footerContainer .footerSocialLinks a{width:34px;height:34px;display:inline-grid;place-items:center;border:1px solid rgba(255,255,255,.22);border-radius:9px;color:#d7e0e6;text-decoration:none}
+.footerContainer .footerSocialLinks a:hover,.footerContainer .footerSocialLinks a:focus-visible{border-color:#8ed0ff;box-shadow:0 0 0 4px rgba(142,208,255,.12);color:#8ed0ff;outline:none}
+.goToTop{position:fixed;right:22px;bottom:22px;z-index:1100;width:42px;height:42px;display:none;place-items:center;border:1px solid #55a8df;border-radius:50%;background:#126aa1;color:#fff;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.goToTop.isVisible{display:grid}.goToTop:hover,.goToTop:focus-visible{box-shadow:0 0 0 5px rgba(85,168,223,.16);outline:none}
+@media (max-width:800px){.footerContainer{grid-template-columns:1fr 1fr}.footerContainer .footerMap{grid-column:1/-1}}
+@media (max-width:560px){.footerContainer{grid-template-columns:1fr}.footerContainer .footerBottom{align-items:flex-start;flex-direction:column}}

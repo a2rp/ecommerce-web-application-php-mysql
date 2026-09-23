@@ -1,28 +1,13 @@
-.headerContainer {
-  background-color: #202529;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.headerContainer .home {
-  color: #fff;
-  padding: 15px;
-  text-decoration: none;
-}
-.headerContainer .home:hover {
-  text-decoration: underline;
-}
-.headerContainer .navbarContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.headerContainer .navbarContainer .navlink {
-  padding: 15px;
-  color: #aaa;
-  text-decoration: none;
-}
-.headerContainer .navbarContainer .navlink:hover {
-  text-decoration: underline;
-}/*# sourceMappingURL=header.css.map */
+.headerContainer{position:fixed;inset:0 0 auto;z-index:1000;min-height:64px;padding:8px clamp(16px,4vw,52px);background:rgba(32,37,41,.97);border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+.headerContainer .home{display:inline-flex;align-items:center;gap:10px;color:#fff;font-weight:700;text-decoration:none}
+.headerContainer .home img{width:38px;height:38px;object-fit:contain;border-radius:10px;background:#0d1114}
+.headerContainer .home:hover,.headerContainer .home:focus-visible{color:#8ed0ff;text-decoration:none}
+.headerContainer .menuToggle{display:none;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:9px 11px;background:transparent;color:#fff;cursor:pointer}
+.headerContainer .navbarContainer{display:flex;align-items:center;justify-content:flex-end;gap:6px}
+.headerContainer .navbarContainer .navlink,.headerContainer .navbarContainer .accountMenu>button{min-height:40px;display:inline-flex;align-items:center;padding:0 13px;border:1px solid transparent;border-radius:8px;background:transparent;color:#d7e0e6;text-decoration:none;transition:border-color 180ms ease,box-shadow 180ms ease,color 180ms ease}
+.headerContainer .navbarContainer .navlink:hover,.headerContainer .navbarContainer .navlink:focus-visible,.headerContainer .navbarContainer .accountMenu>button:hover,.headerContainer .navbarContainer .accountMenu>button:focus-visible{border-color:#55a8df;box-shadow:0 0 0 4px rgba(85,168,223,.12);color:#fff;outline:none}
+.headerContainer .navbarContainer .accountMenu{width:auto}
+.headerContainer .navbarContainer .dropdown-menu{right:0;left:auto;border:1px solid #d8e1e8;border-radius:10px;padding:6px}
+.headerContainer .navbarContainer .dropdown-menu a{color:#263746;border-radius:7px}
+.headerContainer .navbarContainer .dropdown-menu a:hover,.headerContainer .navbarContainer .dropdown-menu a:focus-visible{background:#edf6fd;color:#126aa1}
+@media (max-width:700px){.headerContainer .menuToggle{display:inline-flex}.headerContainer .navbarContainer{position:absolute;top:calc(100% + 8px);right:16px;left:16px;display:none;padding:10px;border:1px solid rgba(255,255,255,.14);border-radius:12px;background:#202529;box-shadow:0 16px 30px rgba(0,0,0,.28)}.headerContainer .navbarContainer.isOpen{display:grid}.headerContainer .navbarContainer .navlink,.headerContainer .navbarContainer .accountMenu,.headerContainer .navbarContainer .accountMenu>button{width:100%}.headerContainer .navbarContainer .accountMenu>button{justify-content:space-between}}
