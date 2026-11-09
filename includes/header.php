@@ -2,6 +2,7 @@
 if (!isset($_SESSION)) {
     session_start();
 }
+require_once __DIR__ . "/../functions/csrf.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,7 @@ if (!isset($_SESSION)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#202529">
+    <meta name="csrf-token" content="<?php echo htmlspecialchars(csrfToken(), ENT_QUOTES, "UTF-8"); ?>">
     <meta name="description" content="A PHP and MySQL ecommerce application with customer and admin workflows.">
     <meta property="og:title" content="Ecommerce Application">
     <meta property="og:description" content="Browse products, manage a cart, and review orders in a PHP and MySQL ecommerce application.">

@@ -14,7 +14,7 @@
     </div>
 
     <?php if (isset($_SESSION["message"])) { ?>
-    <div class="alertMessage"><?php echo $_SESSION["message"]; ?></div>
+    <div class="alertMessage"><?php echo escapeHtml($_SESSION["message"]); ?></div>
     <script><?php include("../assets/jQuery v3.7.0.js"); ?></script>
     <script>$(".alertMessage").show().delay(5000).fadeOut();</script>
     <?php } unset($_SESSION["message"]); ?>

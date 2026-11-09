@@ -1,6 +1,11 @@
-<?php 
+<?php
     if(!isset($_SESSION)) {
-        session_start(); 
+                    session_start();
+    }
+    if (!isset($_SESSION["auth"], $_SESSION["authUser"]["userId"])) {
+        $_SESSION["message"] = "Please log in to view your order.";
+        header("Location: login.php");
+        exit();
     }
     include "includes/header.php";
     include "functions/userFunctions.php";
@@ -32,7 +37,7 @@ if (isset($_GET["trackingNumber"])) {
     <div class="breadCrumbs">
         <h1 class="breadcrumbs">
             <a href="<?php echo "index.php"; ?>">Home</a>
-            / 
+            /
             <a href="<?php echo "myOrders.php"; ?>">My Orders</a>
             /
             <a href="#">View Order</a>
@@ -41,7 +46,7 @@ if (isset($_GET["trackingNumber"])) {
         </h1>
 
         <?php if (isset($_SESSION["message"])) { ?>
-            <div class="alertMessage"><?php echo $_SESSION["message"]; ?></div>
+            <div class="alertMessage"><?php echo escapeHtml($_SESSION["message"]); ?></div>
             <script><?php include("../assets/jQuery v3.7.0.js"); ?></script>
             <script>$(".alertMessage").show().delay(5000).fadeOut();</script>
         <?php } unset($_SESSION["message"]); ?>
@@ -51,27 +56,27 @@ if (isset($_GET["trackingNumber"])) {
                 <h1 class="heading">Delivery Details</h1>
                 <div class="detailGroup">
                     <label for="name">Name</label>
-                    <input type="text" value="<?php echo $order["name"]; ?>" disabled />
+                    <input type="text" value="<?php echo escapeHtml($order["name"]); ?>" disabled />
                 </div>
                 <div class="detailGroup">
                     <label for="email">Email</label>
-                    <input type="text" value="<?php echo $order["email"]; ?>" disabled />
+                    <input type="text" value="<?php echo escapeHtml($order["email"]); ?>" disabled />
                 </div>
                 <div class="detailGroup">
                     <label for="phone">Phone</label>
-                    <input type="text" value="<?php echo $order["phone"]; ?>" disabled />
+                    <input type="text" value="<?php echo escapeHtml($order["phone"]); ?>" disabled />
                 </div>
                 <div class="detailGroup">
                     <label for="trackingNumber">Tracking Number</label>
-                    <input type="text" value="<?php echo $order["trackingNumber"]; ?>" disabled />
+                    <input type="text" value="<?php echo escapeHtml($order["trackingNumber"]); ?>" disabled />
                 </div>
                 <div class="detailGroup">
                     <label for="address">Address</label>
-                    <textarea rows="5" disabled><?php echo $order["address"]; ?></textarea>
+                    <textarea rows="5" disabled><?php echo escapeHtml($order["address"]); ?></textarea>
                 </div>
                 <div class="detailGroup">
                     <label for="pincode">Pin code</label>
-                    <input type="text" value="<?php echo $order["pincode"]; ?>" disabled />
+                    <input type="text" value="<?php echo escapeHtml($order["pincode"]); ?>" disabled />
                 </div>
             </div>
             <div class="orderDetailsContainer">
@@ -81,17 +86,20 @@ if (isset($_GET["trackingNumber"])) {
                     <tbody>
                 <?php
                     $userId = $_SESSION["authUser"]["userId"];
-                    $orderQuery = "SELECT orders.id as orderId, orders.trackingNumber, orders.userId, products.*, order_items.* FROM orders, order_items, products WHERE orders.userId='$userId' AND order_items.order_id=orders.id AND products.id=order_items.product_id AND orders.trackingNumber='$trackingNumber'";
-                    $resultOrder = mysqli_query($conn, $orderQuery);
+                    $orderQuery = "SELECT products.name, products.image, order_items.price AS orderedPrice, order_items.quantity FROM orders INNER JOIN order_items ON order_items.order_id = orders.id INNER JOIN products ON products.id = order_items.product_id WHERE orders.userId = ? AND orders.trackingNumber = ?";
+                    $orderStatement = $conn->prepare($orderQuery);
+                    $orderStatement->bind_param("is", $userId, $trackingNumber);
+                    $orderStatement->execute();
+                    $resultOrder = $orderStatement->get_result();
                     if (mysqli_num_rows($resultOrder)>0) {
                         foreach ($resultOrder as $singleOrder) {
                             ?>
                             <tr>
                                 <td class="imageProductName">
-                                    <img src="uploads/<?php echo $singleOrder["image"]; ?>" alt="<?php echo $singleOrder["name"]; ?>">
-                                    <?php echo $singleOrder["name"]; ?>
+                                    <img src="uploads/<?php echo escapeHtml($singleOrder["image"]); ?>" alt="<?php echo escapeHtml($singleOrder["name"]); ?>">
+                                    <?php echo escapeHtml($singleOrder["name"]); ?>
                                 </td>
-                                <td>&#8377; <?php echo $singleOrder["selling_price"]; ?></td>
+                                <td>&#8377; <?php echo $singleOrder["orderedPrice"]; ?></td>
                                 <td>x * <?php echo $singleOrder["quantity"]; ?></td>
                             </tr>
                             <?php
@@ -103,8 +111,8 @@ if (isset($_GET["trackingNumber"])) {
                     </tbody>
                 </table>
                 <h1 class="totalPrice">Total Price: <span>&#8377; <?php echo $order["totalPrice"]; ?></span></h1>
-                <h1 class="paymentMode">Payment mode: <span><?php echo $order["paymentMode"]; ?></span></h1>
-                <h1 class="paymentStatus">Payment Status: <span><?php 
+                <h1 class="paymentMode">Payment mode: <span><?php echo escapeHtml($order["paymentMode"]); ?></span></h1>
+                <h1 class="paymentStatus">Payment Status: <span><?php
                     if ($order["status"]==0) {
                         echo "Under Process";
                     } else if ($order["status"]==1) {

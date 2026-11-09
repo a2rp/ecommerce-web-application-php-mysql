@@ -1,6 +1,6 @@
-<?php 
+<?php
     if(!isset($_SESSION)) {
-        session_start(); 
+        session_start();
     }
     include "includes/header.php";
 ?>
@@ -14,7 +14,7 @@
             // header("Location: myOrders.php");
             if(isset($_SESSION["message"])) {
                 ?>
-                    <div class="alertMessage"><?php echo $_SESSION["message"]; ?></div>
+                    <div class="alertMessage"><?php echo escapeHtml($_SESSION["message"]); ?></div>
                 <?php
                 unset($_SESSION["message"]);
             }
@@ -22,7 +22,7 @@
     ?>
 
 <?php if (isset($_SESSION["auth"])) { ?>
-        <div class="navlink name">Welcome <?php echo $_SESSION["authUser"]["name"]; ?></div>
+        <div class="navlink name">Welcome <?php echo escapeHtml($_SESSION["authUser"]["name"]); ?></div>
     <?php } else { ?>
         <!-- <a href="register.php" class="navlink register">Register</a> <a href="login.php" class="navlink login">Login</a> to continue -->
     <?php } ?>
@@ -46,7 +46,7 @@
             <div class="item">
                 <img src="assets/images/cart2.webp" alt="Cart 2" style="width: 100%; height: 100vh;" />
             </div>
-            
+
             <div class="item">
                 <img src="assets/images/cart3.png" alt="Cart 3" style="width: 100%; height: 100vh;" />
             </div>

@@ -1,6 +1,6 @@
 <?php
     if(!isset($_SESSION)) {
-        session_start(); 
+        session_start();
     }
     include "../middleware/adminVerification.php";
 ?>
@@ -39,8 +39,8 @@
                                 ?>
                                 <tr>
                                     <td><?php echo $order["id"]?></td>
-                                    <td><?php echo $order["name"]?></td>
-                                    <td><?php echo $order["trackingNumber"]?></td>
+                                    <td><?php echo escapeHtml($order["name"]); ?></td>
+                                    <td><?php echo escapeHtml($order["trackingNumber"]); ?></td>
                                     <td>&#8377; <?php echo $order["totalPrice"]?></td>
                                     <td><?php echo $order["createdAt"]?></td>
                                     <td><a href="viewOrder.php?trackingNumber=<?php echo $order["trackingNumber"]; ?>">View Details</a></td>

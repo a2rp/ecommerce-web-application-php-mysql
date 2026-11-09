@@ -8,6 +8,7 @@
                     url: "adminCode.php",
                     data: {
                         "categoryId": $(this).val(),
+                        "csrf_token": $("#csrf-token").val(),
                         "deleteCategoryButton": true
                     },
                     success: function (response) {
@@ -37,6 +38,7 @@
                     url: "adminCode.php",
                     data: {
                         "productId": $(this).val(),
+                        "csrf_token": $("#csrf-token").val(),
                         "deleteProductButton": true
                     },
                     success: function (response) {

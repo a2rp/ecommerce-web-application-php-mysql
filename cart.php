@@ -1,6 +1,11 @@
-<?php 
+<?php
     if(!isset($_SESSION)) {
-        session_start(); 
+        session_start();
+    }
+    if (!isset($_SESSION["auth"], $_SESSION["authUser"]["userId"])) {
+        $_SESSION["message"] = "Please log in to view your cart.";
+        header("Location: login.php");
+        exit();
     }
     include "includes/header.php";
     include "functions/userFunctions.php";
@@ -12,7 +17,7 @@
 <div class="cartContainer">
     <h1 class="breadcrumbs">
         <a href="<?php echo "index.php"; ?>">Home</a>
-        / 
+        /
         <a href="<?php echo "cart.php"; ?>">Cart</a>
         --&gt;
         <a href="myOrders.php">My Orders</a>
@@ -52,7 +57,7 @@
                 }
             ?>
             <a class="checkout" href="checkout.php">Proceed to Checkout</a>
-            <?php 
+            <?php
             } else { ?>
                 <h1 style="font-size: 20px; text-align: center;">No items in yout cart</h1>
             <?php } ?>

@@ -1,6 +1,11 @@
-<?php 
+<?php
     if(!isset($_SESSION)) {
-        session_start(); 
+        session_start();
+    }
+    if (!isset($_SESSION["auth"], $_SESSION["authUser"]["userId"])) {
+        $_SESSION["message"] = "Please log in before checkout.";
+        header("Location: login.php");
+        exit();
     }
     include "includes/header.php";
     include "functions/userFunctions.php";
@@ -13,7 +18,7 @@
     <div class="breadCrumbsContainer">
         <h1 class="breadcrumbs">
             <a href="<?php echo "index.php"; ?>">Home</a>
-            / 
+            /
             <a href="<?php echo "cart.php"; ?>">Checkout</a>
         </h1>
     </div>
@@ -21,6 +26,7 @@
         <div class="billingContainer">
             <div class="billingDetailsHeader">Billing Details</div>
             <form action="functions/placeorder.php" method="POST">
+                <?php csrfInput(); ?>
                 <div class="formGroup nameEmailContainer">
                     <div class="nameContainer">
                         <label for="name">Name</label>

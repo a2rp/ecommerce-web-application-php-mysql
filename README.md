@@ -18,11 +18,19 @@ PHP, MySQL, HTML, CSS, Sass, JavaScript, jQuery, and Bootstrap.
 
 ## Run locally
 
-1. Install PHP, MySQL, and a local server such as XAMPP.
-2. Create a MySQL database and import the project schema if available.
-3. Update the connection values in `config/connect.php`.
-4. Place the repository inside the server document root.
-5. Open `http://localhost/ecommerce-web-application-php-mysql/` in a browser.
+1. Install PHP 8 or later with the MySQLi and Fileinfo extensions, and install MySQL 8 or later.
+2. Import `database/schema.sql` into MySQL. It creates the `admin_panel` database and the tables used by the app.
+3. Configure `DB_HOST`, `DB_USER`, `DB_PASSWORD`, and `DB_NAME` in the environment where PHP runs. The local defaults are `localhost`, `root`, an empty password, and `admin_panel`.
+4. Make `uploads/` writable by the PHP process so administrators can add product and category images. The directory blocks script execution and image uploads are limited to 5 MB.
+5. Start the app from the repository root with `php -S localhost:8000` or serve it through XAMPP/Apache, then open `http://localhost:8000/`.
+
+To create an administrator for a local development database, register a normal account and promote it explicitly in MySQL:
+
+```sql
+UPDATE users SET role = 1 WHERE email = 'admin@example.com';
+```
+
+Keep database credentials in environment variables. Do not commit production credentials or use the default local credentials on a public server.
 
 GitHub Pages deployment is not used because PHP requires a server runtime.
 

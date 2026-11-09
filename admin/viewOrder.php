@@ -1,6 +1,6 @@
 <?php
     if(!isset($_SESSION)) {
-        session_start(); 
+        session_start();
     }
     include "../middleware/adminVerification.php";
 ?>
@@ -9,7 +9,7 @@
 if (isset($_GET["trackingNumber"])) {
     $trackingNumber = $_GET["trackingNumber"];
     $orderData = checkValidTrackingNumber($trackingNumber);
-    if (mysqli_num_rows($orderData)<0) {
+    if (mysqli_num_rows($orderData)<1) {
     ?>
     <h1>error1: something went wrong</h1>
     <?php
@@ -38,27 +38,27 @@ $data = mysqli_fetch_array($orderData);
                 <h1 class="heading">Delivery Details</h1>
                 <div class="detailGroup">
                     <label for="name">Name</label>
-                    <input type="text" value="<?php if (isset($data)) {echo $data["name"];} ?>" disabled />
+                <input type="text" value="<?php if (isset($data)) {echo escapeHtml($data["name"]);} ?>" disabled />
                 </div>
                 <div class="detailGroup">
                     <label for="email">Email</label>
-                    <input type="text" value="<?php echo $data["email"]; ?>" disabled />
+                    <input type="text" value="<?php echo escapeHtml($data["email"]); ?>" disabled />
                 </div>
                 <div class="detailGroup">
                     <label for="phone">Phone</label>
-                    <input type="text" value="<?php echo $data["phone"]; ?>" disabled />
+                    <input type="text" value="<?php echo escapeHtml($data["phone"]); ?>" disabled />
                 </div>
                 <div class="detailGroup">
                     <label for="trackingNumber">Tracking Number</label>
-                    <input type="text" value="<?php echo $data["trackingNumber"]; ?>" disabled />
+                    <input type="text" value="<?php echo escapeHtml($data["trackingNumber"]); ?>" disabled />
                 </div>
                 <div class="detailGroup">
                     <label for="address">Address</label>
-                    <textarea rows="5" disabled><?php echo $data["address"]; ?></textarea>
+                    <textarea rows="5" disabled><?php echo escapeHtml($data["address"]); ?></textarea>
                 </div>
                 <div class="detailGroup">
                     <label for="pincode">Pin code</label>
-                    <input type="text" value="<?php echo $data["pincode"]; ?>" disabled />
+                    <input type="text" value="<?php echo escapeHtml($data["pincode"]); ?>" disabled />
                 </div>
             </div>
             <div class="orderDetailsContainer">
@@ -67,18 +67,20 @@ $data = mysqli_fetch_array($orderData);
                     <thead><tr><th>Product</th><th>Price</th><th>Quantity</th></tr></thead>
                     <tbody>
                 <?php
-                    $userId = $_SESSION["authUser"]["userId"];
-                    $orderQuery = "SELECT orders.id as orderId, orders.trackingNumber, orders.userId, products.*, order_items.* FROM orders, order_items, products WHERE  order_items.order_id=orders.id AND products.id=order_items.product_id AND orders.trackingNumber='$trackingNumber'";
-                    $resultOrder = mysqli_query($conn, $orderQuery);
+                    $orderQuery = "SELECT products.name, products.image, order_items.price AS orderedPrice, order_items.quantity FROM order_items INNER JOIN products ON products.id = order_items.product_id WHERE order_items.order_id = ?";
+                    $orderStatement = $conn->prepare($orderQuery);
+                    $orderStatement->bind_param("i", $data["id"]);
+                    $orderStatement->execute();
+                    $resultOrder = $orderStatement->get_result();
                     if (mysqli_num_rows($resultOrder)>0) {
                         foreach ($resultOrder as $singleOrder) {
                             ?>
                             <tr>
                                 <td class="imageProductName">
-                                    <img src="../uploads/<?php echo $singleOrder["image"]; ?>" alt="<?php echo $singleOrder["name"]; ?>">
-                                    <?php echo $singleOrder["name"]; ?>
+                                    <img src="../uploads/<?php echo escapeHtml($singleOrder["image"]); ?>" alt="<?php echo escapeHtml($singleOrder["name"]); ?>">
+                                    <?php echo escapeHtml($singleOrder["name"]); ?>
                                 </td>
-                                <td>&#8377; <?php echo $singleOrder["selling_price"]; ?></td>
+                                <td>&#8377; <?php echo $singleOrder["orderedPrice"]; ?></td>
                                 <td>x * <?php echo $singleOrder["quantity"]; ?></td>
                             </tr>
                             <?php
@@ -90,10 +92,11 @@ $data = mysqli_fetch_array($orderData);
                     </tbody>
                 </table>
                 <h1 class="totalPrice">Total Price: <span>&#8377; <?php echo $data["totalPrice"]; ?></span></h1>
-                <h1 class="paymentMode">Payment mode: <span><?php echo $data["paymentMode"]; ?></span></h1>
-                <h1 class="paymentStatus">Payment Status:
+                <h1 class="paymentMode">Payment mode: <span><?php echo escapeHtml($data["paymentMode"]); ?></span></h1>
+                <h1 class="paymentStatus">Order Status:
                     <form action="adminCode.php" method="POST" style="float: right;">
-                        <input type="hidden" name="trackingNumber" id="trackingNumber" value="<?php echo $data["trackingNumber"]; ?>" />
+                        <?php csrfInput(); ?>
+                        <input type="hidden" name="trackingNumber" id="trackingNumber" value="<?php echo escapeHtml($data["trackingNumber"]); ?>" />
                         <select name="orderStatus" id="">
                             <option value="0" <?php echo $data["status"]==0 ? "selected" : "" ?>>Under Process</option>
                             <option value="1" <?php echo $data["status"]==1 ? "selected" : "" ?>>Completed</option>

@@ -1,65 +1,93 @@
 <?php
-session_start();
-include "../config/connect.php";
-include "myFunctions.php";
-
-if (isset($_POST['registerButton'])) {
-    $name = mysqli_real_escape_string($conn,$_POST['name']);
-    $email = mysqli_real_escape_string($conn,$_POST['email']);
-    $phone = mysqli_real_escape_string($conn,$_POST['phone']);
-    $password = mysqli_real_escape_string($conn,$_POST['password']);
-    $confirmPassword = mysqli_real_escape_string($conn,$_POST['confirmPassword']);
-
-    // checking if email already registered
-    $emailQuery = "SELECT email FROM users WHERE email = '$email'";
-    $emailRun = mysqli_query($conn, $emailQuery);
-    if (mysqli_num_rows($emailRun)>0) {
-        $_SESSION["message"] = "Email already registered";
-        header("Location: ../register.php");
-    } else {
-        if ($password == $confirmPassword) {
-            $password = password_hash($password, PASSWORD_BCRYPT);
-            $insertQuery = "INSERT INTO users (name, email, phone, password) VALUES ('$name', '$email', '$phone', '$password')";
-            $result = mysqli_query($conn, $insertQuery);
-            if ($result) {
-                redirect("Registered successfully", "../login.php");
-            } else {
-                redirect("Something went wrong.", "../register.php");
-            }
-        } else {
-            redirect("Passwords do not match.", "../register.php");
-        }
-    }
-} else if (isset($_POST['loginButton'])) {
-    $email = mysqli_real_escape_string($conn,$_POST['email']);
-    $password = mysqli_real_escape_string($conn,$_POST['password']);
-    $loginQuery = "SELECT * FROM users WHERE email = '$email'";
-    $loginRun = mysqli_query($conn,$loginQuery);
-    if (mysqli_num_rows($loginRun)==0) {
-        redirect("Email not registered.", "../login.php");
-    } else {
-        while ($row = mysqli_fetch_assoc($loginRun)) {
-            if(password_verify($password, $row["password"])) {
-                $_SESSION["auth"] = true;
-                $userId = $row["id"];
-                $name = $row["name"];
-                $email = $row["email"];
-                $role = $row["role"];
-                $_SESSION["authUser"] = [
-                    "userId" => $userId,
-                    "name" => $name,
-                    "email" => $email
-                ];
-                $_SESSION["role"] = $role;
-                if($role==1) {
-                    redirect("Welcome to Dashboard.", "../admin/index.php");
-                } else {
-                    redirect("Login successful.", "../index.php");
-                }
-            } else {
-                redirect("Password Incorrect.", "../login.php");
-            }
-        }
-    }
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
 }
+
+require_once __DIR__ . "/../config/connect.php";
+require_once __DIR__ . "/myFunctions.php";
+require_once __DIR__ . "/csrf.php";
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    http_response_code(405);
+    exit("Method not allowed.");
+}
+if (!verifyCsrfToken()) {
+    http_response_code(403);
+    exit("Invalid request token.");
+}
+
+if (isset($_POST["registerButton"])) {
+    $name = trim((string) ($_POST["name"] ?? ""));
+    $email = trim((string) ($_POST["email"] ?? ""));
+    $phone = trim((string) ($_POST["phone"] ?? ""));
+    $password = (string) ($_POST["password"] ?? "");
+    $confirmPassword = (string) ($_POST["confirmPassword"] ?? "");
+
+    if (
+        $name === "" || strlen($name) > 120 ||
+        filter_var($email, FILTER_VALIDATE_EMAIL) === false || strlen($email) > 254 ||
+        preg_match("/^[0-9+() .-]{7,24}$/", $phone) !== 1 ||
+        $password === "" || strlen($password) > 72
+    ) {
+        redirect("Enter valid registration details.", "../register.php");
+    }
+
+    if ($password !== $confirmPassword) {
+        redirect("Passwords do not match.", "../register.php");
+    }
+
+    $emailStatement = $conn->prepare("SELECT id FROM users WHERE email = ? LIMIT 1");
+    $emailStatement->bind_param("s", $email);
+    $emailStatement->execute();
+    $emailStatement->store_result();
+    $emailExists = $emailStatement->num_rows > 0;
+    $emailStatement->close();
+
+    if ($emailExists) {
+        redirect("Email already registered.", "../register.php");
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $insertStatement = $conn->prepare("INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)");
+    $insertStatement->bind_param("ssss", $name, $email, $phone, $hashedPassword);
+    if ($insertStatement->execute()) {
+        redirect("Registered successfully.", "../login.php");
+    }
+    redirect("Something went wrong. Please try again.", "../register.php");
+}
+
+if (isset($_POST["loginButton"])) {
+    $email = trim((string) ($_POST["email"] ?? ""));
+    $password = (string) ($_POST["password"] ?? "");
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false || $password === "") {
+        redirect("Invalid email or password.", "../login.php");
+    }
+
+    $loginStatement = $conn->prepare("SELECT id, name, email, password, role FROM users WHERE email = ? LIMIT 1");
+    $loginStatement->bind_param("s", $email);
+    $loginStatement->execute();
+    $user = $loginStatement->get_result()->fetch_assoc();
+    $loginStatement->close();
+
+    if (!$user || !password_verify($password, $user["password"])) {
+        redirect("Invalid email or password.", "../login.php");
+    }
+
+    session_regenerate_id(true);
+    $_SESSION["auth"] = true;
+    $_SESSION["authUser"] = [
+        "userId" => (int) $user["id"],
+        "name" => $user["name"],
+        "email" => $user["email"],
+    ];
+    $_SESSION["role"] = (int) $user["role"];
+
+    if ((int) $user["role"] === 1) {
+        redirect("Welcome to Dashboard.", "../admin/index.php");
+    }
+    redirect("Login successful.", "../index.php");
+}
+
+http_response_code(400);
+exit("Invalid request.");
 ?>

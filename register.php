@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once __DIR__ . "/functions/escape.php";
 if (isset($_SESSION["auth"])) {
     $_SESSION["message"] = "Register Page, you are already logged in.";
     header("Location: index.php");
@@ -14,13 +15,14 @@ include "includes/header.php";
     <?php
         if (isset($_SESSION["message"])) {
             ?>
-                <div class="alertMessage"><?php echo $_SESSION["message"]; ?></div>
+                <div class="alertMessage"><?php echo escapeHtml($_SESSION["message"]); ?></div>
             <?php
             unset($_SESSION["message"]);
         }
     ?>
     <h3>Registration Form</h3>
     <form action="functions/auth.php" method="post">
+        <?php csrfInput(); ?>
         <div class="formGroup">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" placeholder="Name" required="required">

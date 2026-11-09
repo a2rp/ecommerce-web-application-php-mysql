@@ -33,6 +33,7 @@ $(document).ready(function () {
             data: {
                 productId,
                 productQuantity,
+                "csrf_token": $("meta[name='csrf-token']").attr("content"),
                 "scope": "add",
                 "repeatThisOrder": $(".repeatOrderCheckbox").is(":checked")
             },
@@ -66,6 +67,7 @@ $(document).ready(function () {
             data: {
                 productId,
                 productQuantity,
+                "csrf_token": $("meta[name='csrf-token']").attr("content"),
                 "scope": "update"
             },
             success: function (response) {
@@ -81,6 +83,7 @@ $(document).ready(function () {
             url: "functions/handleCart.php",
             data: {
                 cartId,
+                "csrf_token": $("meta[name='csrf-token']").attr("content"),
                 "scope": "delete"
             },
             success: function (response) {

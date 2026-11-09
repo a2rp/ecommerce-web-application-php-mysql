@@ -1,6 +1,6 @@
 <?php
     if(!isset($_SESSION)) {
-        session_start(); 
+        session_start();
     }
     include "../middleware/adminVerification.php";
 ?>
@@ -12,7 +12,7 @@
     </div>
 
     <?php if (isset($_SESSION["message"])) { ?>
-        <div class="alertMessage"><?php echo $_SESSION["message"]; ?></div>
+        <div class="alertMessage"><?php echo escapeHtml($_SESSION["message"]); ?></div>
         <script><?php include("../assets/jQuery v3.7.0.js"); ?></script>
         <script>$(".alertMessage").show().delay(5000).fadeOut();</script>
     <?php } unset($_SESSION["message"]); ?>
@@ -33,6 +33,7 @@
                     <a class="allCategoryLink" href="../admin/category.php">ALL CATEGORIES</a>
                 </h2>
                 <form action="adminCode.php" method="post" enctype="multipart/form-data">
+                    <?php csrfInput(); ?>
                     <div class="formContainer">
                         <div class="nameSlugContainer">
                             <div class="formGroup">
