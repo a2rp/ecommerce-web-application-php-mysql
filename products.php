@@ -18,15 +18,15 @@
                 $categoryId = $category["id"];
                 $categoryName = $category["name"];
             ?>
-            <h1 class="breadcrumbs"><a href="<?php echo "index.php"; ?>">Home</a> / <a href="<?php echo "categories.php"; ?>">Categories</a> / <?php echo $categoryName; ?></h1>
+            <h1 class="breadcrumbs"><a href="<?php echo "index.php"; ?>">Home</a> / <a href="<?php echo "categories.php"; ?>">Categories</a> / <?php echo escapeHtml($categoryName); ?></h1>
             <?php
                 $products = getProductsByCategoryId($categoryId);
                 if (mysqli_num_rows($products)>0) {
                     foreach($products as $product) {
                     ?>
-                        <a href="productView.php?product=<?php echo $product["slug"] ?>" class="listContainer">
-                            <img class="image" src="uploads/<?php echo $product["image"]; ?>" alt="product image" />
-                            <div class="text"><?php echo $product["name"]; ?></div>
+                        <a href="productView.php?product=<?php echo rawurlencode($product["slug"]); ?>" class="listContainer">
+                            <img class="image" src="uploads/<?php echo escapeHtml($product["image"]); ?>" alt="<?php echo escapeHtml($product["name"]); ?>" />
+                            <div class="text"><?php echo escapeHtml($product["name"]); ?></div>
                         </a>
                     <?php
                     }

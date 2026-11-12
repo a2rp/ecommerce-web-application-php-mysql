@@ -40,14 +40,14 @@
                         foreach($allProducts as $product) {
                             ?>
                             <tr>
-                                <td><?php echo $product["id"]; ?></td>
-                                <td><?php echo $product["name"]; ?></td>
-                                <td><img class="productImage" src="../uploads/<?php echo $product["image"] ?>" alt="<?php echo $product["name"]; ?>"></td>
+                                <td><?php echo (int) $product["id"]; ?></td>
+                                <td><?php echo escapeHtml($product["name"]); ?></td>
+                                <td><img class="productImage" src="../uploads/<?php echo escapeHtml($product["image"]); ?>" alt="<?php echo escapeHtml($product["name"]); ?>"></td>
                                 <td><?php echo $product["status"] == 1 ? "Visible" : "Hidden"; ?></td>
                                 <td>
                                     <div class="actionContainer">
-                                        <a href="editProduct.php?id=<?php echo $product["id"]; ?>">View/Edit</a>
-                                        <button type="button" class="deleteProductButton" value="<?php echo $product["id"]; ?>">Delete</button>
+                                        <a href="editProduct.php?id=<?php echo (int) $product["id"]; ?>">View/Edit</a>
+                                        <button type="button" class="deleteProductButton" value="<?php echo (int) $product["id"]; ?>">Delete</button>
                                     </div>
                                 </td>
                             </tr>

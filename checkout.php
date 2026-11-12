@@ -64,10 +64,10 @@
                     // print_r($item);
                 ?>
                     <div class="cartItemContainer">
-                        <div class="image"><img src="uploads/<?php echo $item["image"]; ?>" alt="item image" /></div>
-                        <div class="name"><?php echo $item["name"]; ?></div>
-                        <div class="price">&#8377; <?php echo $item["selling_price"]; ?></div>
-                        <div class="numberOfItems">x <?php echo $item["productQuantity"]; ?></div>
+                        <div class="image"><img src="uploads/<?php echo escapeHtml($item["image"]); ?>" alt="<?php echo escapeHtml($item["name"]); ?>" /></div>
+                        <div class="name"><?php echo escapeHtml($item["name"]); ?></div>
+                        <div class="price">&#8377; <?php echo escapeHtml($item["selling_price"]); ?></div>
+                        <div class="numberOfItems">x <?php echo (int) $item["productQuantity"]; ?></div>
                     </div>
                 <?php
                 $totalPrice += $item["selling_price"] * $item["productQuantity"];
@@ -77,7 +77,7 @@
             <a href="cart.php" style="margin-top: 15px; display: block;">Edit Items</a>
             <hr />
             <div class="totalPrice">
-                <h3>Total Price</h3>: <h3>&#8377; <?= $totalPrice ?></h3>
+                <h3>Total Price</h3>: <h3>&#8377; <?= escapeHtml($totalPrice) ?></h3>
             </div>
         </div>
     </div>

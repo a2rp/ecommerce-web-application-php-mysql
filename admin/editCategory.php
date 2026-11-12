@@ -37,34 +37,34 @@
                     <div class="formContainer">
                         <div class="nameSlugContainer">
                             <div class="formGroup">
-                                <input type="hidden" id="categoryId" name="categoryId" value = "<?php echo $data['id']; ?>" />
+                                <input type="hidden" id="categoryId" name="categoryId" value="<?php echo (int) $data['id']; ?>" />
                                 <label for="name">Name</label>
-                                <input type="text" id="name" name="name" value="<?php echo $data['name'];?>" placeholder="Name" />
+                                <input type="text" id="name" name="name" value="<?php echo escapeHtml($data['name']); ?>" placeholder="Name" />
                             </div>
                             <div class="formGroup">
                                 <label for="slug">Slug</label>
-                                <input type="text" id="slug" name="slug" value="<?php echo $data['slug'];?>" placeholder="Slug" />
+                                <input type="text" id="slug" name="slug" value="<?php echo escapeHtml($data['slug']); ?>" placeholder="Slug" />
                             </div>
                         </div>
                         <div class="formGroup">
                             <label for="description">Description</label>
-                            <textarea rows="3" id="description" name="description" placeholder="Description"><?php echo $data['description'];?></textarea>
+                            <textarea rows="3" id="description" name="description" placeholder="Description"><?php echo escapeHtml($data['description']); ?></textarea>
                         </div>
                         <div class="formGroup">
                             <label for="image">Upload Image</label>
                             <input type="file" id="image" name="image" />
                             <label for="" style="margin-top: 5px;">Present Image</label>
-                            <input type="hidden" name="oldImage" value="<?php echo $data['image']; ?>" />
-                            <img src="../uploads/<?php echo $data['image']; ?>" alt="<?php echo $data['image']; ?>" style="width: 50px; height: 50px;" />
+                            <input type="hidden" name="oldImage" value="<?php echo escapeHtml($data['image']); ?>" />
+                            <img src="../uploads/<?php echo escapeHtml($data['image']); ?>" alt="<?php echo escapeHtml($data['name']); ?>" style="width: 50px; height: 50px;" />
                         </div>
                         <div class="metaContainer">
                             <div class="formGroup">
                                 <label for="meta_title">Meta Title</label>
-                                <textarea rows="3" id="meta_title" name="meta_title" placeholder="Meta title"><?php echo $data['meta_title'];?></textarea>
+                                <textarea rows="3" id="meta_title" name="meta_title" placeholder="Meta title"><?php echo escapeHtml($data['meta_title']); ?></textarea>
                             </div>
                             <div class="formGroup">
                                 <label for="meta_description">Meta Description</label>
-                                <textarea rows="3" id="meta_description" name="meta_description" value="<?php echo $data['meta_description'];?>" placeholder="Meta Description"><?php echo $data['meta_description'];?></textarea>
+                                <textarea rows="3" id="meta_description" name="meta_description" placeholder="Meta Description"><?php echo escapeHtml($data['meta_description']); ?></textarea>
                             </div>
                         </div>
                         <div class="statusPopularContainer">

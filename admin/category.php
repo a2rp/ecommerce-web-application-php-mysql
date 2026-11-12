@@ -40,18 +40,18 @@
                         foreach($allCategories as $category) {
                             ?>
                             <tr>
-                                <td><?php echo $category["id"]; ?></td>
-                                <td><?php echo $category["name"]; ?></td>
-                                <td><img class="categoryImage" src="../uploads/<?php echo $category["image"] ?>" alt="<?php echo $category["name"]; ?>"></td>
+                                <td><?php echo (int) $category["id"]; ?></td>
+                                <td><?php echo escapeHtml($category["name"]); ?></td>
+                                <td><img class="categoryImage" src="../uploads/<?php echo escapeHtml($category["image"]); ?>" alt="<?php echo escapeHtml($category["name"]); ?>"></td>
                                 <td><?php echo $category["status"] == 0 ? "Visible" : "Hidden"; ?></td>
                                 <td>
                                     <div class="actionContainer">
-                                        <a href="editCategory.php?id=<?php echo $category["id"]; ?>">View/Edit</a>
+                                        <a href="editCategory.php?id=<?php echo (int) $category["id"]; ?>">View/Edit</a>
                                         <!-- <form action="adminCode.php" method="post">
                                             <input type="hidden" name="categoryId" id="categoryId" value="<?php // echo $category["id"]; ?>" />
                                             <button type="submit" class="deleteButton" id="deleteCategoryButton" name="deleteCategoryButton">Delete</button>
                                         </form> -->
-                                        <button type="button" class="deleteCategoryButton" value="<?php echo $category["id"]; ?>">Delete</button>
+                                        <button type="button" class="deleteCategoryButton" value="<?php echo (int) $category["id"]; ?>">Delete</button>
                                     </div>
                                 </td>
                             </tr>

@@ -45,10 +45,10 @@
                                 // echo "<br />";
                                 ?>
                                 <tr>
-                                    <td><?php echo $order["id"]?></td>
+                                    <td><?php echo (int) $order["id"]; ?></td>
                                     <td><?php echo escapeHtml($order["trackingNumber"]); ?></td>
-                                    <td>&#8377; <?php echo $order["totalPrice"]?></td>
-                                    <td><?php echo $order["createdAt"]?></td>
+                                    <td>&#8377; <?php echo escapeHtml($order["totalPrice"]); ?></td>
+                                    <td><?php echo escapeHtml($order["createdAt"]); ?></td>
                                     <td><a href="viewOrder.php?trackingNumber=<?php echo rawurlencode($order["trackingNumber"]); ?>">View Details</a></td>
                                 </tr>
                                 <?php

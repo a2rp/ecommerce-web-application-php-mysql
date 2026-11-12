@@ -38,19 +38,19 @@
                     // print_r($item);
                 ?>
                     <div class="cartItemContainer">
-                        <div class="image"><img src="uploads/<?php echo $item["image"]; ?>" alt="item image" /></div>
-                        <div class="name"><?php echo $item["name"]; ?></div>
-                        <div class="price"><?php echo $item["selling_price"]; ?></div>
+                        <div class="image"><img src="uploads/<?php echo escapeHtml($item["image"]); ?>" alt="<?php echo escapeHtml($item["name"]); ?>" /></div>
+                        <div class="name"><?php echo escapeHtml($item["name"]); ?></div>
+                        <div class="price"><?php echo escapeHtml($item["selling_price"]); ?></div>
                         <div class="incrementDecrement">
-                            <input type="hidden" class="productId" name="productId" value="<?php echo $item["productId"]; ?>"/>
+                            <input type="hidden" class="productId" name="productId" value="<?php echo (int) $item["productId"]; ?>"/>
                             <div class="inputArea">
                                 <div class="decrement minus updateQuantity">-</div>
-                                <input class="itemNumber" type="number" value="<?php echo $item["productQuantity"]; ?>" disabled />
+                                <input class="itemNumber" type="number" value="<?php echo (int) $item["productQuantity"]; ?>" disabled />
                                 <div class="increment plus updateQuantity">+</div>
                             </div>
                         </div>
                         <div class="remove">
-                            <button class="removeButton deleteItem" value="<?php echo $item['cartId']; ?>">Remove</button>
+                            <button class="removeButton deleteItem" value="<?php echo (int) $item['cartId']; ?>">Remove</button>
                         </div>
                     </div>
                 <?php

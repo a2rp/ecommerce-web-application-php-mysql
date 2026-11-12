@@ -72,9 +72,9 @@
             if (mysqli_num_rows($trendingProducts)>0) {
                 foreach ($trendingProducts as $product) {
                 ?>
-                    <a href="productView.php?product=<?php echo $product["slug"] ?>" class="listContainer">
-                        <img class="image" src="uploads/<?php echo $product["image"]; ?>" alt="product image" />
-                        <div class="text"><?php echo $product["name"]; ?></div>
+                    <a href="productView.php?product=<?php echo rawurlencode($product["slug"]); ?>" class="listContainer">
+                        <img class="image" src="uploads/<?php echo escapeHtml($product["image"]); ?>" alt="<?php echo escapeHtml($product["name"]); ?>" />
+                        <div class="text"><?php echo escapeHtml($product["name"]); ?></div>
                     </a>
                 <?php
                 }

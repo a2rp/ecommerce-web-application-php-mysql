@@ -18,13 +18,13 @@
             foreach($categories as $category) {
             ?>
                 <div class="categoryContainer">
-                    <img class="image" src="uploads/<?php echo $category["image"]; ?>" alt="category image">
+                    <img class="image" src="uploads/<?php echo escapeHtml($category["image"]); ?>" alt="<?php echo escapeHtml($category["name"]); ?>">
                     <div class="text">
-                        <div><b>Name:</b> <?php echo $category["name"]; ?></div>
-                        <div><b>Products under this category:</b> <a href="products.php?slug=<?php echo $category["slug"]; ?>">click here</a></div>
-                        <div><b>Description:</b> <?php echo $category["description"]; ?></div>
-                        <div><b>Meta Title:</b> <?php echo $category["meta_title"]; ?></div>
-                        <div><b>Meta Description:</b> <?php echo $category["meta_description"]; ?></div>
+                        <div><b>Name:</b> <?php echo escapeHtml($category["name"]); ?></div>
+                        <div><b>Products under this category:</b> <a href="products.php?slug=<?php echo rawurlencode($category["slug"]); ?>">click here</a></div>
+                        <div><b>Description:</b> <?php echo escapeHtml($category["description"]); ?></div>
+                        <div><b>Meta Title:</b> <?php echo escapeHtml($category["meta_title"]); ?></div>
+                        <div><b>Meta Description:</b> <?php echo escapeHtml($category["meta_description"]); ?></div>
                     </div>
                 </div>
             <?php
